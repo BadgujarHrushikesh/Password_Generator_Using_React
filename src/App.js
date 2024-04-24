@@ -7,7 +7,7 @@ function App() {
   const [numberAllowed, setNumberAllowed] = useState(false)
   const [characterAllowed, setCharacterAllowed] = useState(false)
   const [password, setPassword] = useState("")
-  
+
   const passwordRef = useRef(null)
 
   const passwordGenerator = useCallback(() => {
@@ -25,11 +25,11 @@ function App() {
 
   }, [length, numberAllowed, characterAllowed, setPassword])
 
-  const copyPasswordToClipBoard = useCallback(()=>{
+  const copyPasswordToClipBoard = useCallback(() => {
     passwordRef.current?.select()
     // passwordRef.current?.setSelectionRange(0,1)
     window.navigator.clipboard.writeText(password)
-  },[password])
+  }, [password])
 
 
   useEffect(() => {
@@ -37,28 +37,87 @@ function App() {
   }, [length, numberAllowed, characterAllowed, passwordGenerator])
 
   return (
-    <div className="cont">
-      <div >
-        <h1>Password Generator </h1>
-        <input type="text" value={password} className='' placeholder='Password' readOnly ref={passwordRef} />
-        <button className='btn btn-primary' onClick={copyPasswordToClipBoard}>Copy</button>
-      </div>
-      <div>
-        <input type="range" min={8} max={50} value={length} onChange={(e) => { setLength(e.target.value) }} /> <label htmlFor="range">Length : {length}</label>
-      </div>
-      <div>
-        <input type="checkbox" min={8} defaultChecked={numberAllowed} id='numberInput' onChange={() => {
-          setNumberAllowed((prev) => !prev)
-        }} /><label htmlFor="numberInput"> : Numbers</label>
+    <div
+      className="container position-absolute top-50 start-50 translate-middle mx-2"
+      style={{ width: "40vw", height: "35vh" }}
+    >
+      <div className="card">
+        <h2 className="card-header bg-secondary text-white text-center">
+          Password Generator
+        </h2>
+        <div className="card-body mb-3">
+          <div className="input-group mb-3">
+            <input
+              value={password}
+              type="text"
+              className="form-control"
+              readOnly
+              ref={passwordRef}
 
-      </div>
-      <div>
-        <input type="checkbox" min={8} defaultChecked={numberAllowed} id='CharInput' onChange={() => {
-          setCharacterAllowed((prev) => !prev)
-        }} /><label htmlFor="numberInput"> : Character</label>
+            />
+            <button className="btn btn-primary rounf" type="button" id="button-addon" onClick={copyPasswordToClipBoard} >
+              Copy
+            </button>
+          </div>
 
+
+          <input
+            type="range"
+            className="form-range"
+            min={8}
+            max={50}
+            id="customRange2"
+            value={length} onChange={(e) => { setLength(e.target.value) }}
+          />
+          <p className="text-center">Length : {length}</p>
+          <div className="row">
+            <div className="col">
+              <div className="form-check form-switch">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+
+                  min={8}
+                  defaultChecked={numberAllowed}
+                  id='numberInput' onChange={() => {
+                    setNumberAllowed((prev) => !prev)
+                  }}
+                />
+                <label
+                  className="form-check-label"
+                  htmlFor="flexSwitchCheckChecked1"
+                >
+                  Numbers
+                </label>
+              </div>
+            </div>
+            <div className="col">
+              <div className="form-check form-switch">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  min={8} defaultChecked={numberAllowed} id='CharInput' onChange={() => {
+                    setCharacterAllowed((prev) => !prev)
+                  }}
+                />
+                <label
+                  className="form-check-label"
+                  htmlFor="flexSwitchCheckChecked2"
+                >
+                  Symbol
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+
+
+
+
+
 
   )
 }

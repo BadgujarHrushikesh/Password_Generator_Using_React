@@ -1,63 +1,6 @@
-.cont {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  font-family: Arial, sans-serif;
-}
-
-.cont > div {
-  margin-bottom: 20px;
-}
-
-.cont > div:nth-child(2) {
-  width: 50%;
-  margin: 0 auto;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-button {
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-input[type="range"] {
-  width: 100%;
-}
-
-label {
-  margin-left: 5px;
-  font-size: 16px;
-}
-
-.checkbox-container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.checkbox-container input[type="checkbox"] {
-  margin-right: 5px;
-}
-
-.checkbox-container label {
-  font-size: 16px;
+.btn {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
