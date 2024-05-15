@@ -6,7 +6,7 @@ This is a simple password generator built using React. It allows users to genera
 
 1. Clone the repository:
    ```
-   git clone https://github.com/your-username/simple-password-generator.git
+   git clone https://github.com/BadgujarHrushikesh/Password_Generator_Using_React.git
    ```
 
 2. Install dependencies:
